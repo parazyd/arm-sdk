@@ -98,6 +98,19 @@ EOF
 	postbuild-clean
 }
 
+copy-kernel-config() {
+	fn copy-kernel-config
+	req=(device_name)
+	ckreq || return 1
+
+	notice "configuring kernel"
+	make \
+		$MAKEOPTS \
+		ARCH=arm64 \
+		CROSS_COMPILE=$compiler \
+		pine64_defconfig
+}
+
 build_kernel_arm64() {
 	fn build_kernel_arm64
 	req=(R arch device_name gitkernel gitbranch MAKEOPTS)
