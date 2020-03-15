@@ -36,8 +36,8 @@ bootfs="ext2"
 extra_packages+=()
 custmodules=()
 
-gitkernel="https://github.com/maemo-leste/pine64-kernel"
-gitbranch="pine64-kernel-5.4.0"
+gitkernel="https://gitlab.com/pine64-org/linux.git"
+gitbranch="pine64-kernel-5.5.y-flash"
 
 atfgit="https://github.com/ARM-software/arm-trusted-firmware.git"
 ubootgit="https://gitlab.com/pine64-org/u-boot.git"
@@ -110,7 +110,6 @@ build_kernel_arm64() {
 
 	get-kernel-sources
 	pushd $R/tmp/kernels/$device_name/${device_name}-linux
-		wget -O- https://github.com/maemo-leste/pine64-kernel/raw/maemo/ascii-devel/debian/patches/0001-Include-rtl8723cs-staging-driver.patch | patch -p1
 
 		copy-kernel-config
 
