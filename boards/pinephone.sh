@@ -129,7 +129,7 @@ build_kernel_arm64() {
 				INSTALL_MOD_PATH=$strapdir \
 					modules_install || zerr
 
-		sudo cp -v arch/arm64/boot/Image $strapdir/boot/ || zerr
+		sudo cp -v arch/arm64/boot/Image.gz $strapdir/boot/ || zerr
 		sudo cp -v arch/arm64/boot/dts/allwinner/sun50i-a64-pinephone.dtb \
 			"$strapdir/boot/" || zerr
 	popd
